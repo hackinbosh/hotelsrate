@@ -26,7 +26,7 @@ def load_all_content(driver):
             if show_more_button.is_displayed():
                 show_more_button.click()
                 show_more_clicks += 1
-                if show_more_clicks >= 2:
+                if show_more_clicks >= 10:
                     break
             else:
                 print("'Show More' button is not visible. Trying to scroll it into view again...")
@@ -44,7 +44,7 @@ def load_all_content(driver):
 
 try:
     # Navigate to the URL
-    driver.get('https://www.cheekytrip.com/results?t=sun&r=194&p=c&a=25%2C33%2C36%2C30&d=2023-10-22&f=7&n=7&b=AI&h=4&s=0&l=0&_its=JTdCJTIydmlkJTIyJTNBJTIyY2VjM2YyNTAtYjE3YS00NGNhLWJlYmItMzgyN2Y2MWQ1ODE5JTIyJTJDJTIyc3RhdGUlMjIlM0ElMjJybHR%2BMTY5NTk5NzM3M35sYW5kfjJfNTAxOF9kaXJlY3RfMzE4MTJjMGU0M2NiOTNjNDVmMGE1NTg4ZTBlN2FhOTAlMjIlMkMlMjJzaXRlSWQlMjIlM0ExODI2JTdE')
+    driver.get('https://www.cheekytrip.com/results?t=sun&r=194&p=c&a=25,33,36,30&d=2023-10-22&f=7&n=7&b=AI&h=3&s=0&l=0')
     print(f"Current URL: {driver.current_url}")
 
     # Wait for a specific element on the page to be present to ensure the page has loaded

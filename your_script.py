@@ -26,7 +26,7 @@ def load_all_content(driver):
             if show_more_button.is_displayed():
                 show_more_button.click()
                 show_more_clicks += 1
-                if show_more_clicks >= 3:
+                if show_more_clicks >= 2:
                     break
             else:
                 print("'Show More' button is not visible. Trying to scroll it into view again...")

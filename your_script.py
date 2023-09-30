@@ -67,12 +67,12 @@ def get_tripadvisor_score(hotel_name):
 
 def get_file_info_and_confirm_skip():
     # Check if the `hotels.csv` file exists
-    if os.path.exists('/hotels.csv'):
+    if os.path.exists('./hotels.csv'):
         # Get the last updated date of the file
-        last_updated = datetime.fromtimestamp(os.path.getmtime('/hotels.csv')).strftime('%Y-%m-%d %H:%M:%S')
+        last_updated = datetime.fromtimestamp(os.path.getmtime('./hotels.csv')).strftime('%Y-%m-%d %H:%M:%S')
 
         # Read the file and count the number of hotel names, star ratings, and prices
-        df = pd.read_csv('/hotels.csv')
+        df = pd.read_csv('./hotels.csv')
         num_hotels = df['Hotel Name'].count()
         num_star_ratings = df['Star Rating'].count()
         num_prices = df['Price'].count()
@@ -116,11 +116,11 @@ try:
         star_ratings = [len(hotel.find_elements(By.CSS_SELECTOR, ".fa.fa-star.solid")) for hotel in driver.find_elements(By.XPATH, "//*[@id='results_container']/div/div/div[2]/div/div[3]")]
     else:
         # Read the hotel names from the `hotels.csv` file
-        df = pd.read_csv('/hotels.csv')
+        df = pd.read_csv('./hotels.csv')
         hotels = df['Hotel Name'].tolist()
 
     print("Writing hotel names, prices, star ratings, and TripAdvisor scores to CSV file...")
-    with open('/hotels.csv', mode='w', newline='', encoding='utf-8') as file:
+    with open('./hotels.csv', mode='w', newline='', encoding='utf-8') as file:
         writer = csv.writer(file)
         writer.writerow(["Index", "Hotel Name", "Price", "Star Rating", "TripAdvisor Score"])
         for index, (hotel, price, star_rating) in enumerate(zip(hotels, prices, star_ratings), start=1):

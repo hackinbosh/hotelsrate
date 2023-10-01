@@ -1,1 +1,1 @@
-# hotelsrape
+# hotelsrate
